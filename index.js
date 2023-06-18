@@ -14,9 +14,11 @@ const authenticationMiddleware = require('./middleware/authentication')
 const app = express()
 const PORT = 3500
 
-connectDB()
 
 app.options('*', cors()) // include before other routes
+connectDB()
+
+ 
 
 // Allow Credentials
 app.use(credentials)
@@ -25,7 +27,7 @@ app.use(credentials)
 app.use(cors(corsOptions))
 
 // application.x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 
 
 // application/json response

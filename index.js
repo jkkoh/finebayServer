@@ -16,6 +16,8 @@ const PORT = 3500
 
 connectDB()
 
+app.options('*', cors()) // include before other routes
+
 // Allow Credentials
 app.use(credentials)
 

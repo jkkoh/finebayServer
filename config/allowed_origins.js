@@ -4,7 +4,7 @@ const origins = [
   'http://localhost:8080',
   'http://127.0.0.1:5173',
   'http://www.finebay.co.kr',
-  'https://www.finebay.co.kr'
+  'https://www.finebay.co.kr',
 ]
 
 module.exports = origins

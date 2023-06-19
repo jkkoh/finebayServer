@@ -15,7 +15,7 @@ const app = express()
 
 connectDB()
 
-var port = process.env.PORT || 3500;
+var port = process.env.PORT || 443;
  
 
 // Allow Credentials
@@ -46,6 +46,12 @@ app.use(errorHandlerMiddleware)
 
 
 // Routes
+// app.post("api/auth/test", (req, res) => {
+//   res.json({
+//     name: 'abc',
+//     prof: 'bcd'
+//   })
+// })
 app.use('/api/auth', require('./routes/api/auth'))
 
 app.all('*', (req, res) => {

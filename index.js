@@ -12,10 +12,10 @@ const errorHandlerMiddleware = require('./middleware/error_handler')
 const authenticationMiddleware = require('./middleware/authentication')
 
 const app = express()
-const PORT = 3500
 
 connectDB()
 
+var port = process.env.PORT || 3500;
  
 
 // Allow Credentials
@@ -60,5 +60,5 @@ app.all('*', (req, res) => {
 
 mongoose.connection.once('open', ()=>{
   console.log('DB connected')
-  app.listen(PORT, () => { console.log(`Listening on port ${PORT}`) })
+  app.listen(port, () => { console.log(`Listening on port ${port} `) })
 })

@@ -14,8 +14,6 @@ const authenticationMiddleware = require('./middleware/authentication')
 const app = express()
 const PORT = 3500
 
-
-app.options('*', cors()) // include before other routes
 connectDB()
 
  
@@ -25,6 +23,10 @@ app.use(credentials)
 
 // CORS
 app.use(cors(corsOptions))
+
+// app.post("/api/auth/refresh", )
+
+
 
 // application.x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }))

@@ -19,18 +19,11 @@ connectDB()
  
 
 // Allow Credentials
+
 app.use(credentials)
 // CORS
-app.use((req, res, next) =>{
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
-
 
 app.use(cors(corsOptions))
-
-// app.post("/api/auth/refresh", )
-
 
 
 // application.x-www-form-urlencoded

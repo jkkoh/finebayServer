@@ -24,6 +24,9 @@ app.use(credentials)
 // CORS
 app.options('*', cors())
 app.use(cors(corsOptions))
+app.post('/api/auth/login', cors(), function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
 
 
 // application.x-www-form-urlencoded

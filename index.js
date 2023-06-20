@@ -11,6 +11,7 @@ const credentials = require('./middleware/credentials')
 const errorHandlerMiddleware = require('./middleware/error_handler')
 const authenticationMiddleware = require('./middleware/authentication')
 const bodyParser = require('body-parser')
+const xmlparser = require('express-xml-bodyparser')
 
 const app = express()
 
@@ -20,24 +21,26 @@ var port = process.env.PORT || 443;
  
 //body parser
 
+// app.use(xmlparser());
 
-// application.x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false }))
 
 // Allow Credentials
 
-app.use(credentials)
 
 // CORS
 
 app.use(cors({
-  origin: "http://127.0.0.1:5173"
+  origin: "http://127.0.0.1:5173",
+  credentials: true,
+  preflightContinue: false,
 }))
-
-app.post("/aaa", (req, res)=>{
-  console.log(req.body.email)
-  res.json({name: req.body.email, favoriteFood: req.body.password})
+app.post("/aaa", xmlparser({trim: false, expicitArray: false}), (req, res)=>{
+  console.log(req.body)
+  res.json({name: 'abc', favoriteFood: 'abc'})
 })
+
+// application.x-www-form-urlencoded
+app.use(express.urlencoded({ extended: false }))
 
 // app.use(cors())
 // app.use(cors(corsOptions))

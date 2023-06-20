@@ -22,7 +22,7 @@ var port = process.env.PORT || 443;
 
 app.use(credentials)
 // CORS
-
+app.options('*', cors())
 app.use(cors(corsOptions))
 
 

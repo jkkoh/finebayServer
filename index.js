@@ -21,12 +21,13 @@ var port = process.env.PORT || 443;
 // Allow Credentials
 
 app.use(credentials)
-// CORS
-app.options('*', cors())
-app.use(cors(corsOptions))
-app.post('/api/auth/login', cors(), function (req, res, next) {
+app.post('/api/login', cors(), function (req, res, next) {
   res.json({msg: 'This is CORS-enabled for all origins!'})
 })
+// CORS
+
+app.use(cors(corsOptions))
+
 
 
 // application.x-www-form-urlencoded
@@ -47,14 +48,6 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 // Default error handler
 app.use(errorHandlerMiddleware)
 
-
-// Routes
-// app.post("api/auth/test", (req, res) => {
-//   res.json({
-//     name: 'abc',
-//     prof: 'bcd'
-//   })
-// })
 app.use('/api/auth', require('./routes/api/auth'))
 
 app.all('*', (req, res) => {

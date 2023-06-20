@@ -21,12 +21,11 @@ var port = process.env.PORT || 443;
 // Allow Credentials
 
 app.use(credentials)
-app.post('/api/login', cors(), function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
+
 // CORS
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
+app.use(cors())
 
 
 
@@ -35,7 +34,7 @@ app.use(express.urlencoded({ extended: false }))
 
 
 // application/json response
-app.use(express.json())
+app.use(express.json()) 
 
 // middleware for cookies
 app.use(cookieParser())

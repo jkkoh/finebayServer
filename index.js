@@ -10,6 +10,7 @@ const connectDB = require('./config/database')
 const credentials = require('./middleware/credentials')
 const errorHandlerMiddleware = require('./middleware/error_handler')
 const authenticationMiddleware = require('./middleware/authentication')
+const bodyParser = require('body-parser')
 
 const app = express()
 
@@ -17,6 +18,11 @@ connectDB()
 
 var port = process.env.PORT || 443;
  
+//body parser
+
+
+// application.x-www-form-urlencoded
+app.use(express.urlencoded({ extended: false }))
 
 // Allow Credentials
 
@@ -25,11 +31,12 @@ app.use(credentials)
 // CORS
 
 app.use(cors({
-  origin: "https://www.finebay.co.kr"
+  origin: "http://127.0.0.1:5173"
 }))
 
-app.get("/data", (req, res)=>{
-  res.json({name: "kyle", favoriteFood: "rice"})
+app.post("/aaa", (req, res)=>{
+  console.log(req.body.email)
+  res.json({name: req.body.email, favoriteFood: req.body.password})
 })
 
 // app.use(cors())
@@ -51,8 +58,7 @@ app.get("/data", (req, res)=>{
 
 
 
-// application.x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false }))
+
 
 
 // application/json response

@@ -16,6 +16,7 @@
     "@aws-amplify/cli": "^12.1.1",
     "aws-amplify": "^5.2.7",
     "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

@@ -24,8 +24,21 @@ app.use(credentials)
 
 // CORS
 
-// app.use(cors(corsOptions))
-app.use(cors())
+app.use(cors(corsOptions))
+// var allowlist = ['https://www.finebay.co.kr', '//http://127.0.0.1:5173']
+// var corsOptionsDelegate = function (req, callback) {
+//   var corsOptions;
+//   if (allowlist.indexOf(req.header('Origin')) !== -1) {
+//     corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+//   } else {
+//     corsOptions = { origin: false } // disable CORS for this request
+//   }
+//   callback(null, corsOptions) // callback expects two parameters: error and options
+// }
+
+// app.post('/api/auth/login', cors(corsOptionsDelegate), function (req, res, next) {
+//   res.json({msg: 'This is CORS-enabled for an allowed domain.'})
+// })
 
 
 

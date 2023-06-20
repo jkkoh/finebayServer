@@ -24,8 +24,16 @@ app.use(credentials)
 
 // CORS
 
+app.use(cors({
+  origin: "https://www.finebay.co.kr"
+}))
+
+app.get("/data", (req, res)=>{
+  res.json({name: "kyle", favoriteFood: "rice"})
+})
+
 // app.use(cors())
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 // var allowlist = ['https://www.finebay.co.kr', '//http://127.0.0.1:5173']
 // var corsOptionsDelegate = function (req, callback) {
 //   var corsOptions;

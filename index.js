@@ -30,7 +30,7 @@ var port = process.env.PORT || 443;
 // CORS
 
 app.use(cors({
-  origin: "http://127.0.0.1:5173",
+  origin: "https://finebay.co.kr",
   credentials: true,
   preflightContinue: false,
 }))
